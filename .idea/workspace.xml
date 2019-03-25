@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Vigenere/FrequenciesExercise.py" line="31" mnemonic="7" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="977007ea-5223-4e1a-82e2-1ecea0e82b0b" name="Default Changelist" comment="" />
+    <list default="true" id="977007ea-5223-4e1a-82e2-1ecea0e82b0b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Vigenere/VigenereCracker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vigenere/eng_frequencies" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vigenere/es23" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vigenere/es23birikino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dsp-projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dsp-projects.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vigenere/Exercise" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vigenere/FrequenciesExercise.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vigenere/FrequenciesExercise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vigenere/temp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vigenere/tempone" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vigenere/testText" beforeDir="false" afterPath="$PROJECT_DIR$/Vigenere/testText" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vigenere/testText2" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Vigenere/FrequenciesExercise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+            <state relative-caret-position="495">
+              <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -25,20 +35,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Vigenere/testText">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vigenere/VigenereCracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="59" lean-forward="true" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+            <state relative-caret-position="435">
+              <caret line="138" column="41" selection-start-line="138" selection-start-column="41" selection-end-line="138" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vigenere/testText2">
+        <entry file="file://$PROJECT_DIR$/Vigenere/es23">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="67" selection-start-column="67" selection-end-column="67" />
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vigenere/es23birikino">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Vigenere/testText">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -49,10 +80,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Vigenere/Exercise">
+        <entry file="file://$PROJECT_DIR$/Vigenere/eng_frequencies">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -66,6 +97,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -73,6 +107,14 @@
         <option value="$PROJECT_DIR$/FrequenciesExercise.py" />
         <option value="$PROJECT_DIR$/testText2" />
         <option value="$PROJECT_DIR$/testText" />
+        <option value="$PROJECT_DIR$/Vigenere/eng_frequencies" />
+        <option value="$PROJECT_DIR$/Vigenere/VigenereAttack.py" />
+        <option value="$PROJECT_DIR$/Vigenere/es23" />
+        <option value="$PROJECT_DIR$/Vigenere/es23birikino" />
+        <option value="$PROJECT_DIR$/Vigenere/testText" />
+        <option value="$PROJECT_DIR$/Vigenere/V.py" />
+        <option value="$PROJECT_DIR$/Vigenere/VigenereCracker.py" />
+        <option value="$PROJECT_DIR$/Vigenere/FrequenciesExercise.py" />
       </list>
     </option>
   </component>
@@ -108,9 +150,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Vigenere" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Vigenere" />
     </key>
@@ -140,16 +185,19 @@
       <workItem from="1551959005702" duration="6911000" />
       <workItem from="1551969053154" duration="122000" />
       <workItem from="1552216286322" duration="71000" />
+      <workItem from="1552216692682" duration="4000" />
+      <workItem from="1553460209832" duration="8767000" />
+      <workItem from="1553472995096" duration="1252000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7104000" />
+    <option name="totallyTimeSpent" value="17127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18463181" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19103523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -163,7 +211,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32900432" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28990227" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -176,37 +224,57 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Vigenere/FrequenciesExercise.py">
+    <entry file="file://$PROJECT_DIR$/Vigenere/testText2" />
+    <entry file="file://$PROJECT_DIR$/Vigenere/Exercise" />
+    <entry file="file://$PROJECT_DIR$/Vigenere/VigenereAttack.py" />
+    <entry file="file://$PROJECT_DIR$/Vigenere/eng_frequencies">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vigenere/es23">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vigenere/VigenereCracker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="138" column="41" selection-start-line="138" selection-start-column="41" selection-end-line="138" selection-end-column="41" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vigenere/testText2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="67" selection-start-column="67" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Vigenere/ciphertext">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vigenere/Exercise">
+    <entry file="file://$PROJECT_DIR$/Vigenere/testText">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Vigenere/testText">
+    <entry file="file://$PROJECT_DIR$/Vigenere/es23birikino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="59" lean-forward="true" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+        <state relative-caret-position="60">
+          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vigenere/FrequenciesExercise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="60" column="2" selection-start-line="60" selection-start-column="2" selection-end-line="60" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

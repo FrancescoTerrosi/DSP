@@ -11,7 +11,6 @@ def __read_from_file__(filename):
         line = line.translate(str.maketrans('', '', string.punctuation))
         line = line.lower()
         text += line
-    print(text)
     return text
 
 
@@ -44,7 +43,19 @@ def coincidence_indexes(frequencies_array):
     return coincidence_index
 
 
-result = frequencies(sys.argv[1], sys.argv[2])
-print(result[0])
-print(result[1])
-print(coincidence_indexes(result[1]))
+def q_grams_distribution(filename, q):
+    freq = frequencies(filename, q)
+    temp = freq[1]
+    result = []
+    for i in range(0, len(temp)):
+        result.append(float(temp[i])/float(len(temp)))
+    return freq[0], result
+
+
+file = sys.argv[1]
+q_g = sys.argv[2]
+
+# freq_array = frequencies(file, q_g)
+# print(coincidence_indexes(freq_array[1]))
+
+# print(q_grams_distribution(file, q_g))

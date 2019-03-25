@@ -1,9 +1,0 @@
-1. Programmare una funzione Python che, dato un testo, calcoli la frequenza dei q-grammi, dove q=1,2,... viene specificato dall'utente.
-
-Viene anche prodotto un istogramma delle frequenze, limitato ai soli q-grammi piu' frequenti (es. f >1).
-
-2. Programmare una funzione Python che, dato un testo, ne calcoli l'indice di coincidenza.
-
-In entrambi i casi, il testo deve essere preventivamente 'ripulito' rimuovendo spazi e punteggiatura e convertendo tutti i caratteri al minuscolo. Il testo è contenuto in un file.
-Questi esercizi sono propedeutici ai problemi di programmazione che verranno proposti nel primo set di esercizi (in particolare, si tratterà di implementare la criptanalisi di Vigenère,
-come vista ieri a lezione).
