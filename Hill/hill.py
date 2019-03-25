@@ -49,7 +49,6 @@ def find_key(pt, ct, m): #pt,ct shall be list of indexes
     if len(pairs) < m:
         raise Exception("Too few pairs of plaintext ciphertext")
     k = 0 # counter for number of shift
-    keys = [] # suitable keys
     while k < len(pairs):
         pstar = []
         cstar = []
@@ -57,14 +56,13 @@ def find_key(pt, ct, m): #pt,ct shall be list of indexes
             pstar.append(pairs[i][0]) #P* is a m x m matrix in which each line is known plaintext
             cstar.append(pairs[i][1]) #C* is a m x m matrix in which cstar[i] = ciphertext(plaintext[i])
         try:
-            key = dot_product(cstar,modMatInv(pstar,len(gamma))) #da dispense
-            print("!!FOUND A KEY!!")
-            keys.append(key)
+            key = dot_product(numpy.transpose(cstar),modMatInv(numpy.transpose(pstar),len(gamma))) #da dispense
+            print("!!FOUND THE KEY!!")
+            return key
         except:
-            pass
-        shiftLeft(pairs) #provo a vedere che chiave riesco a ottenere shiftando a sinistra il vettore delle coppie, aggiornando quindi P* e C*
-        k = k + 1
-    return keys
+            shiftLeft(pairs) #provo a vedere che chiave riesco a ottenere shiftando a sinistra il vettore delle coppie, aggiornando quindi P* e C*
+            k = k + 1
+    return None
 
 def key2str(key):
     k2s = []
@@ -76,16 +74,18 @@ def key2str(key):
     return str(k2s).replace(",","\r\n").replace("[","\r\n").replace("]","")
 if __name__ == '__main__':
     txt = clean("scrivo un messaggio molto lungo affinche si possano ottenere numerose coppie di testo in chiaro testo cifrato da poter utilizzare per inferire la chiave di cifratura per il cifrario di Hill che e un tipo di cifrario vulnerabile ad attacchi di tipo known plaintext ossia tutti quegli attacchi in cui l'attaccante e a conoscenza di un numero arbitrario di coppie testo in chiaro testo cifrato e se uno ci pensa bene non e neanche una situazione tanto strana o difficile da ottenere infatti alcuni messaggi possono essere conosciuti a priori perche risposte a protocolli noti come ad esempio arp nelle reti locali")
-    key = [ [1,1]
-           ,[0,1] ]
+    txt = clean("scrivo un messaggio abbastanza lungo affinche si possano ottenere un buon numero di coppie ma non troppe")
+    key = [ [1,2,3]
+           ,[3,1,1]
+           ,[1,2,4] ]
     ciphertext = encrypt(txt,key)
     print("Input text: "+txt)
     print("Ciphertext: "+ciphertext)
     decrypted = decrypt(ciphertext,key)
     print("Decrypted: "+decrypt(ciphertext,key))
     print("*********** ATTACKING HILL CIPHER ***********")
-    guessed_keys = find_key(txt,ciphertext,len(key))
-    for key in guessed_keys:
-        print("Decryption of ciphertext using the guessed key:" + key2str(key))
-        print(decrypt(ciphertext,key))
+    guessed_key = find_key(txt,ciphertext,len(key))
+    if guessed_key is not None:
+        print("Decryption of ciphertext using the guessed key:" + key2str(guessed_key))
+        print(decrypt(ciphertext,guessed_key))
 
