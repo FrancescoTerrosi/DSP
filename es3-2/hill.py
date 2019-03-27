@@ -74,15 +74,17 @@ def key2str(key):
         k2s.append(k2srow)
     return str(k2s).replace(",","\r\n").replace("[","\r\n").replace("]","")
 
+mainKey = [ [1,2,3]
+           ,[3,1,1]
+           ,[1,2,4] ]
+
 if __name__ == '__main__':
     f = open(sys.argv[1])
     txt = ""
     for line in f.readlines():
         txt += line
     txt = clean(txt)
-    key = [ [1,2,3]
-           ,[3,1,1]
-           ,[1,2,4] ]
+    key = mainKey
     ciphertext = encrypt(txt,key)
     print("Input text: "+txt)
     print("Ciphertext: "+ciphertext)

@@ -1,4 +1,3 @@
-import sys
 import string
 import matplotlib.pyplot as plt
 import math
@@ -68,7 +67,7 @@ def plot_frequencies(q_grams, freqs):
 	for k in keys:
 		values.append(d[k])
 	plt.bar(keys, values, color = 'b')
-	plt.title("frequencies")
+	plt.title("english alphabet frequencies 1st chapter of MD")
 	plt.show()
 
 
@@ -96,16 +95,3 @@ def plotEntropy(entropDict):
 	freqss = []
 	for k in grams:
 		freqss.append(entropDict[k])
-
-
-file = sys.argv[1]
-q_g = sys.argv[2]
-
-freq_array = frequencies(file, q_g)
-ci = coincidence_indexes(freq_array[1])
-qgrams = q_grams_distribution(file, q_g)
-print(qgrams[0])
-print(qgrams[1])
-entrop = entropy(qgrams[0])
-plot_frequencies(grams, freqss)
-
