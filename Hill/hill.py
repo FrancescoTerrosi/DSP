@@ -1,3 +1,4 @@
+import sys
 from hilltools import *
 
 def create_indexes(block):
@@ -72,9 +73,13 @@ def key2str(key):
             k2srow = k2srow + str(val) + ' '
         k2s.append(k2srow)
     return str(k2s).replace(",","\r\n").replace("[","\r\n").replace("]","")
+
 if __name__ == '__main__':
-    txt = clean("scrivo un messaggio molto lungo affinche si possano ottenere numerose coppie di testo in chiaro testo cifrato da poter utilizzare per inferire la chiave di cifratura per il cifrario di Hill che e un tipo di cifrario vulnerabile ad attacchi di tipo known plaintext ossia tutti quegli attacchi in cui l'attaccante e a conoscenza di un numero arbitrario di coppie testo in chiaro testo cifrato e se uno ci pensa bene non e neanche una situazione tanto strana o difficile da ottenere infatti alcuni messaggi possono essere conosciuti a priori perche risposte a protocolli noti come ad esempio arp nelle reti locali")
-    txt = clean("scrivo un messaggio abbastanza lungo affinche si possano ottenere un buon numero di coppie ma non troppe")
+    f = open(sys.argv[1])
+    txt = ""
+    for line in f.readlines():
+        txt += line
+    txt = clean(txt)
     key = [ [1,2,3]
            ,[3,1,1]
            ,[1,2,4] ]

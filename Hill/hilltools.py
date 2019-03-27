@@ -12,7 +12,7 @@ def indexof(letter):
     return -1
 
 def clean(text):
-    cln = text
+    cln = text.lower()
     for ch in text:
         if ch not in gamma:
             cln = cln.replace(ch,'')
