@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import math
 
 
+# QUESTO FILE CONTIENE SOLO FUNZIONI DI UTILITà #
+
+
 gamma = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 
@@ -19,7 +22,7 @@ def __read_from_file__(filename):
 	return text
 
 
-def frequencies(filename, q):
+def frequencies(filename, q):           # Calcola il numero di occorrenze dei q-grammi all'interno del testo
     text = __read_from_file__(filename)
     q_grams = []
     frequencies_array = []
@@ -37,7 +40,7 @@ def frequencies(filename, q):
     return q_grams, frequencies_array, len(text)
 
 
-def coincidence_indexes(frequencies_array):
+def coincidence_indexes(frequencies_array):     # Calcolo degli indici di coincidenza
     coincidence_index = 0
     count = 0
     for n in frequencies_array:
@@ -48,7 +51,7 @@ def coincidence_indexes(frequencies_array):
     return coincidence_index
 
 
-def q_grams_distribution(filename, q):
+def q_grams_distribution(filename, q):      # Distribuzione empirica dei q-grammi
     freq = frequencies(filename, q)
     temp = freq[1]
     result = []
@@ -57,7 +60,7 @@ def q_grams_distribution(filename, q):
     return freq[0], result
 
 
-def plot_frequencies(q_grams, freqs):
+def plot_frequencies(q_grams, freqs):       # Funzione per il plot della distribuzione delle 26 lettere dell'alfabeto inglese nel primo capitolo di moby dick
 	d = dict()
 	for i in range(0, len(q_grams)):
 		d[q_grams[i]] = freqs[i]
@@ -71,7 +74,7 @@ def plot_frequencies(q_grams, freqs):
 	plt.show()
 
 
-def fi(letter, text):
+def fi(letter, text):               # Funzione ad hoc per il calcolo delle occorrenze di una lettera per il calcolo dell'entropia
 	c = 0
 	for i in range(0, len(text)):
 		if text[i] == letter:
@@ -79,7 +82,7 @@ def fi(letter, text):
 	return c
 
 
-def entropy(q_grams):
+def entropy(q_grams):               # Calcolo dell'entropia
 	result = dict()
 	for q in q_grams:
 		h = 0
@@ -90,7 +93,7 @@ def entropy(q_grams):
 	return result
 
 
-def plotEntropy(entropDict):
+def plotEntropy(entropDict):        # Funzione plot dell'entropia
 	grams = list(entropDict.keys())
 	freqss = []
 	for k in grams:

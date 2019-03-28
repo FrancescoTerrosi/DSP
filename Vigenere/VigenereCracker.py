@@ -60,15 +60,6 @@ def freq2(row, ch):
     return float(c)/float(len(row))
 
 
-def freq(row, k):
-    rowk = row[k]
-    f = 0
-    for i in range(0, len(row)):
-        if row[i] == rowk:
-            f = f+1
-    return float(f)/float(len(row))
-
-
 def dot_product(v1, v2):
     result = 0
     for i in range(0, len(v1)):
@@ -88,13 +79,11 @@ def compute_mg(matrix, m):
     key = []
     Mg = []
     for k in range(0, m):
-        print(matrix)
         v1 = build_vector(matrix, k)
         d = __read_language_frequencies__("eng_frequencies")
         v2 = []
         for a in alpha:
             v2.append(d[a])
-        print(v2)
         m_max = 0
         temp_k = -1
         for i in range(0, len(alpha)):
@@ -124,6 +113,33 @@ def extend_key(key, size):
     return extkey
 
 
+def frequencies(text, q):
+    q_grams = []
+    frequencies_array = []
+    count = 0
+    q = int(q)
+    for i in range(0, len(text)-q):
+        q_gram = text[i: i+q]
+        if q_gram not in q_grams:
+            q_grams.append(q_gram)
+            for j in range(0, len(text)):
+                if text[j:j+q] == q_gram:
+                    count += 1
+            frequencies_array.append(count)
+            count = 0
+    return q_grams, frequencies_array, len(text)
+
+
+def coincidence_indexes(frequencies_array):
+    coincidence_index = 0
+    count = 0
+    for n in frequencies_array:
+        count += n
+    for i in range(0, len(frequencies_array)):
+        coincidence_index += frequencies_array[i]*(frequencies_array[i]-1)
+    coincidence_index /= (count*(count-1))
+    return coincidence_index
+
 def decipher(message, key):
     size = len(message)
     extkey = extend_key(key, size)
@@ -136,8 +152,25 @@ def decipher(message, key):
     return plaintext
 
 
+def compute_coincidence_indexes(matrix):
+    for j in range(0, len(matrix[0])):
+        c = []
+        for i in range(0, len(matrix)):
+            c.append(matrix[i][j])
+        freq = frequencies(''.join(c), 1)
+        print(c)
+        c_i = coincidence_indexes(freq[1])
+        print(c_i)
+
+
+
 matrix = super_build_matrix(sys.argv[1], 8)
+print(matrix)
+compute_coincidence_indexes(matrix)
 r = compute_mg(matrix, 8)
 print(r[0])
 print(r[1])
 print(decipher(__read_from_file__("es23"), r[1]))
+
+
+
