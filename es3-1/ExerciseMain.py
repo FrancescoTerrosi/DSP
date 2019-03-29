@@ -8,32 +8,39 @@ import FrequenciesExercise as fr
 file = "mobydick"
 
 
-print("*************\t m = 1\t*************")
-freq_array = fr.frequencies(file, 1)
+print("*************\t m = 1\t*************")       # Esegue i punti 1 - 2 - 3 dell'esercizio per m = 1
+freq_array = fr.occurences(file, 1)
 ci = fr.coincidence_indexes(freq_array[1])
 print("COINCIDENCE INDEX: {}".format(ci))
 print("\n")
 toPrint = fr.q_grams_distribution(file, 1)
-print("1-grams: {}".format(toPrint[0]))
-print("1-grams distribution: {}".format(toPrint[1]))
+print("1-grams distribution: {}".format(toPrint))
 print("\n")
-entrop = fr.entropy(toPrint[0])
+entrop = fr.entropy(toPrint)
 print("ENTROPY: {}".format(entrop))
 print("\n")
 
-for m in range(2,5):
+for m in range(2,5):                    # Esegue i punti 2 - 3 (non è richiesto di plottare) dell'esercizio per m = 2, 3, 4
+
     print("*************\t m = {}\t*************".format(m))
-    freq_array = fr.frequencies(file, m)
+    freq_array = fr.occurences(file, m)
     ci = fr.coincidence_indexes(freq_array[1])
     print("COINCIDENCE INDEX: {}".format(ci))
     qgrams = fr.q_grams_distribution(file, m)
     print("\n")
-    print("{}-grams: {}".format(m,qgrams[0]))
-    print("{}-grams distribution: {}".format(m,qgrams[1]))
+    print("{}-grams: {}".format(m,qgrams))
     print("\n")
-    entrop = fr.entropy(qgrams[0])
+    entrop = fr.entropy(qgrams)
     print("ENTROPY: {}".format(entrop))
     print("\n")
 
-fr.plot_frequencies(toPrint[0],freq_array[1])
+toPlotKeys = list()
+for k in toPrint.keys():
+    toPlotKeys.append(k)
+toPlotKeys.sort()
+toPlotValues = list()
+for k in toPlotKeys:
+    toPlotValues.append(toPrint[k])
+
+fr.plot_frequencies(toPlotKeys,toPlotValues)
 

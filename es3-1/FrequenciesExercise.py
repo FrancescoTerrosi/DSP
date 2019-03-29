@@ -1,6 +1,7 @@
 import string
 import matplotlib.pyplot as plt
 import math
+from functools import reduce
 
 
 # QUESTO FILE CONTIENE SOLO FUNZIONI DI UTILITà #
@@ -22,7 +23,7 @@ def __read_from_file__(filename):
 	return text
 
 
-def frequencies(filename, q):           # Calcola il numero di occorrenze dei q-grammi all'interno del testo
+def occurences(filename, q):           # Calcola il numero di occorrenze dei q-grammi all'interno del testo
     text = __read_from_file__(filename)
     q_grams = []
     frequencies_array = []
@@ -52,12 +53,15 @@ def coincidence_indexes(frequencies_array):     # Calcolo degli indici di coinci
 
 
 def q_grams_distribution(filename, q):      # Distribuzione empirica dei q-grammi
-    freq = frequencies(filename, q)
+    freq = occurences(filename, q)
     temp = freq[1]
     result = []
     for i in range(0, len(temp)):
         result.append(float(temp[i])/float(freq[2]))
-    return freq[0], result
+    d = dict()
+    for i in range(0, len(freq[0])):
+        d[freq[0][i]] = result[i]
+    return d
 
 
 def plot_frequencies(q_grams, freqs):       # Funzione per il plot della distribuzione delle 26 lettere dell'alfabeto inglese nel primo capitolo di moby dick
@@ -82,15 +86,10 @@ def fi(letter, text):               # Funzione ad hoc per il calcolo delle occor
 	return c
 
 
-def entropy(q_grams):               # Calcolo dell'entropia
-	result = dict()
-	for q in q_grams:
-		h = 0
-		for c in q:
-			fa = float(fi(c,q))
-			h = h + (fa/float(len(q)))*math.log2(fa/float(len(q)))
-		result[str(q)] = -h
-	return result
+def entropy(d):         # Calcolo dell'entropia
+    n = sum(d.values())
+    entropy = reduce((lambda x, y: x + y), (map((lambda x: d[x] / n * math.log(d[x] / n)), d)))
+    return (-1) * (entropy) / math.log(len(d.keys()))
 
 
 def plotEntropy(entropDict):        # Funzione plot dell'entropia
