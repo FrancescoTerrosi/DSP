@@ -78,22 +78,8 @@ def plot_frequencies(q_grams, freqs):       # Funzione per il plot della distrib
 	plt.show()
 
 
-def fi(letter, text):               # Funzione ad hoc per il calcolo delle occorrenze di una lettera per il calcolo dell'entropia
-	c = 0
-	for i in range(0, len(text)):
-		if text[i] == letter:
-			c = c+1
-	return c
-
-
 def entropy(d):         # Calcolo dell'entropia
     n = sum(d.values())
     entropy = reduce((lambda x, y: x + y), (map((lambda x: d[x] / n * math.log(d[x] / n)), d)))
     return (-1) * (entropy) / math.log(len(d.keys()))
 
-
-def plotEntropy(entropDict):        # Funzione plot dell'entropia
-	grams = list(entropDict.keys())
-	freqss = []
-	for k in grams:
-		freqss.append(entropDict[k])

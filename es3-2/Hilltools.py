@@ -4,7 +4,12 @@ from numpy import matrix
 from numpy import linalg
 from itertools import *
 
+
+# Modulo di funzioni di utilità per il cifrario di Hill
+
+
 gamma = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
 def indexof(letter):
     for i in range(0,len(gamma)):
         if letter == gamma[i]:
@@ -23,14 +28,14 @@ def dot_product(mat, vec):
     res = []
     for row in mat:
         if len(row)!=len(vec):
-            raise ValueError("Size of mat is different from size of vec")
+            raise ValueError("La matrice e il vettore devono avere la stessa dimensione")
         res_i = 0
         for i in range(0,len(row)):
             res_i = res_i + row[i]*vec[i]
         res.append(res_i%p)
     return res
 
-def modMatInv(A,p):       # Finds the inverse of matrix A mod p
+def modMatInv(A,p):       # Calcola l'inverso della matrice A mod p
   n=len(A)
   A=matrix(A)
   adj=numpy.zeros(shape=(n,n))
@@ -39,17 +44,17 @@ def modMatInv(A,p):       # Finds the inverse of matrix A mod p
       adj[i][j]=((-1)**(i+j)*int(round(linalg.det(minor(A,j,i)))))%p
   return (modInv(int(round(linalg.det(A))),p)*adj)%p
 
-def modInv(a,p):          # Finds the inverse of a mod p, if it exists
+def modInv(a,p):          # Passo finale della funzione sopra
   for i in range(1,p):
     if (i*a)%p==1:
       return i
-  raise ValueError(str(a)+" has no inverse mod "+str(p))
+  raise ValueError(str(a)+" non ha inverso modulo "+str(p))
   
 def divide(v1, v2):
 	print("So i am dividing "+str(v1)+" for "+str(v2))
 	return numpy.divide(v1,v2)
 
-def minor(A,i,j):    # Return matrix A with the ith row and jth column deleted
+def minor(A,i,j):    # Restituisce la matrice A senza l'i-esima riga e la j-esima colonna
   A=numpy.array(A)
   minor=numpy.zeros(shape=(len(A)-1,len(A)-1))
   p=0

@@ -20,6 +20,8 @@ entrop = fr.entropy(toPrint)
 print("ENTROPY: {}".format(entrop))
 print("\n")
 
+# Commentare questa parte se si vuole omettere m = 2,3,4 che causa output verbosi #####################################
+
 for m in range(2,5):                    # Esegue i punti 2 - 3 (non è richiesto di plottare) dell'esercizio per m = 2, 3, 4
 
     print("*************\t m = {}\t*************".format(m))
@@ -33,6 +35,8 @@ for m in range(2,5):                    # Esegue i punti 2 - 3 (non è richiesto
     entrop = fr.entropy(qgrams)
     print("ENTROPY: {}".format(entrop))
     print("\n")
+
+#######################################################################################################################à
 
 toPlotKeys = list()
 for k in toPrint.keys():
