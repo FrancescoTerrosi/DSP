@@ -127,6 +127,13 @@ def assign_code(root):
     return result
 
 
+def assign_decode(code):
+    decode_dict = dict()
+    for c in code:
+        decode_dict[code[c]] = c
+    return decode_dict
+
+
 def create_compression_code_dict(root):
     result = dict()
     left_tree = None
@@ -139,5 +146,28 @@ def create_compression_code_dict(root):
     result[right_tree.symbol] = right_tree.code
 
 
+def encode(code_dict, text):
+    for c in code_dict:
+        text = text.replace(c, code_dict[c])
+    return text
+
+
+def decode(decode_dict, text):
+    temp = ""
+    for c in text:
+        temp += c
+        try:
+            text = text.replace(temp, decode_dict[temp], 1)
+            temp = ""
+        except KeyError:
+            None
+    return text
+
+
 r = build_tree(gamma, p_freq)[0]
 code_dict = assign_code(r)
+decode_dict = assign_decode(code_dict)
+print(decode_dict)
+e = encode(code_dict, "comeebellalaconigliachefaillattedivaniglia")
+print(e)
+print(decode(decode_dict, e))
