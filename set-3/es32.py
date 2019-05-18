@@ -1,4 +1,5 @@
 from typing import List
+import time
 
 gamma = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
          'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -109,7 +110,7 @@ def build_tree(symbols, freq):
     nodes = init_tree(symbols, freq)
     while len(nodes) > 1:
         nodes = create_node(nodes)
-    return nodes
+    return nodes[0]
 
 
 def assign_code(root):
@@ -118,12 +119,12 @@ def assign_code(root):
         root.left.code = root.code+'0'
         result.update(assign_code(root.left))
     else:
-        return {root.symbol : root.code}
+        return {root.symbol: root.code}
     if root.right is not None:
         root.right.code = root.code+'1'
         result.update(assign_code(root.right))
     else:
-        return {root.symbol : root.code}
+        return {root.symbol: root.code}
     return result
 
 
@@ -134,40 +135,35 @@ def assign_decode(code):
     return decode_dict
 
 
-def create_compression_code_dict(root):
-    result = dict()
-    left_tree = None
-    right_tree = None
-    while root.left is not None:
-        left_tree = root.left
-    while root.right is not None:
-        right_tree = root.right
-    result[left_tree.symbol] = left_tree.code
-    result[right_tree.symbol] = right_tree.code
+def translate(code_dict):
+    return lambda x: code_dict[x]
 
 
 def encode(code_dict, text):
-    for c in code_dict:
-        text = text.replace(c, code_dict[c])
-    return text
+    result = ""
+    for c in text:
+        result += translate(code_dict)(c)
+    return result
 
 
 def decode(decode_dict, text):
     temp = ""
+    result = ""
     for c in text:
         temp += c
         try:
-            text = text.replace(temp, decode_dict[temp], 1)
+            result += translate(decode_dict)(temp)
             temp = ""
         except KeyError:
-            None
-    return text
+            continue
+    return result
 
 
-r = build_tree(gamma, p_freq)[0]
+r = build_tree(gamma, p_freq)
 code_dict = assign_code(r)
 decode_dict = assign_decode(code_dict)
-print(decode_dict)
+
 e = encode(code_dict, "comeebellalaconigliachefaillattedivaniglia")
 print(e)
-print(decode(decode_dict, e))
+d = decode(decode_dict, e)
+print(d)
