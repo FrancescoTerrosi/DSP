@@ -26,57 +26,7 @@ class Node:
         self.right = right
         self.parent = parent
         self.code = code
-
-    def display(self):
-        lines, _, _, _ = self._display_aux()
-        for line in lines:
-            print(line)
-
-    def _display_aux(self):
-        """Returns list of strings, width, height, and horizontal coordinate of the root."""
-        # No child.
-        if self.right is None and self.left is None:
-            line = '%s' % self.code + self.symbol
-            width = len(line)
-            height = 1
-            middle = width // 2
-            return [line], width, height, middle
-
-        # Only left child.
-        if self.right is None:
-            lines, n, p, x = self.left._display_aux()
-            s = '%s' % self.code + self.symbol
-            u = len(s)
-            first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s
-            second_line = x * ' ' + '/' + (n - x - 1 + u) * ' '
-            shifted_lines = [line + u * ' ' for line in lines]
-            return [first_line, second_line] + shifted_lines, n + u, p + 2, n + u // 2
-
-        # Only right child.
-        if self.left is None:
-            lines, n, p, x = self.right._display_aux()
-            s = '%s' % self.code + self.symbol
-            u = len(s)
-            first_line = s + x * '_' + (n - x) * ' '
-            second_line = (u + x) * ' ' + '\\' + (n - x - 1) * ' '
-            shifted_lines = [u * ' ' + line for line in lines]
-            return [first_line, second_line] + shifted_lines, n + u, p + 2, u // 2
-
-        # Two children.
-        left, n, p, x = self.left._display_aux()
-        right, m, q, y = self.right._display_aux()
-        s = '%s' % self.code + self.symbol
-        u = len(s)
-        first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s + y * '_' + (m - y) * ' '
-        second_line = x * ' ' + '/' + (n - x - 1 + u + y) * ' ' + '\\' + (m - y - 1) * ' '
-        if p < q:
-            left += [n * ' '] * (q - p)
-        elif q < p:
-            right += [m * ' '] * (p - q)
-        zipped_lines = zip(left, right)
-        lines = [first_line, second_line] + [a + u * ' ' + b for a, b in zipped_lines]
-        return lines, n + m + u, max(p, q) + 2, n + u // 2
-
+        
 
 def init_tree(symbols, freqs):
     nodes: List[Node] = []
@@ -106,11 +56,12 @@ def create_node(nodes):
     return nodes
 
 
-def build_tree(symbols, freq):
+def huffman(symbols, freq):
     nodes = init_tree(symbols, freq)
     while len(nodes) > 1:
         nodes = create_node(nodes)
-    return nodes[0]
+    result = assign_code(nodes[0])
+    return result
 
 
 def assign_code(root):
@@ -146,9 +97,10 @@ def encode(code_dict, text):
     return result
 
 
-def decode(decode_dict, text):
+def decode(code_dict, text):
     temp = ""
     result = ""
+    decode_dict = assign_decode((code_dict))
     for c in text:
         temp += c
         try:
@@ -159,11 +111,9 @@ def decode(decode_dict, text):
     return result
 
 
-r = build_tree(gamma, p_freq)
-code_dict = assign_code(r)
-decode_dict = assign_decode(code_dict)
-
-e = encode(code_dict, "comeebellalaconigliachefaillattedivaniglia")
+result = huffman(gamma, p_freq)
+e = encode(result, "sonountestodiprovaedesistosoloperesserecompresso")
+d = decode(result, e)
 print(e)
-d = decode(decode_dict, e)
 print(d)
+
